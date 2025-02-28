@@ -1,5 +1,6 @@
 #pragma once
 
+#include <unordered_map>
 #include "ASMInstruction.hpp"
 #include "Module.hpp"
 #include "Register.hpp"
@@ -82,6 +83,7 @@ class CodeGen {
         Instruction *inst{nullptr}; // 当前指令
         /* 在allocate()中设置 */
         unsigned frame_size{0}; // 当前函数的栈帧大小
+        // Value* 指的是什么？
         std::unordered_map<Value *, int> offset_map{}; // 指针相对 fp 的偏移
         unsigned fcmp_cnt{0}; // fcmp 的计数器, 用于创建 fcmp 需要的 label
 
